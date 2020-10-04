@@ -76,7 +76,9 @@ client.on('message', async msg => {
     }
     
     
-    if(msg.content === '!launches') 
+    // Command for the lastest launches
+    
+    if(msg.content === '!launches')
     {
         let getLaunches = async () => {
 
@@ -85,9 +87,20 @@ client.on('message', async msg => {
 
             let json = await result.json()
             return json
-    }
-    let launchesValue = await getLaunches();
-    msg.reply(launchesValue.title);
+        }
+
+        let launchesValue = await getLaunches();
+
+
+        msg.reply("Here are the launches:");
+
+        var i;
+        for (i = 0; i < 5; i++)
+        {
+            msg.channel.send(launchesValue.launches[i].name + "\n");
+            msg.channel.send("Date and Time : " + launchesValue.launches[i].net + "\n\n");
+            msg.channel.send("-----------------------------------");
+        }
     }
 
 });
