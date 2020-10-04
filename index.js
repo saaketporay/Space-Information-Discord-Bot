@@ -39,6 +39,33 @@ client.on('message', async msg => {
         "\n\nCopyright: " + apodValue.copyright + "\n\n" +
         apodValue.hdurl);
     }
+    
+    
+    // Command for lastest weather on Mars
+
+    if (msg.content === '!wmars')
+    {
+        let getMarsData = async () => {
+
+            let result = await fetch
+            ('https://api.nasa.gov/insight_weather/?api_key=wLY9MZpynjliPigK4cOJvRt9fHjmpXRM2qHFtnY2&feedtype=json&ver=1.0')
+
+            let json = await result.json()
+
+            return json
+
+        }
+
+        let marsDataVal = await getMarsData();
+
+        let sol = marsDataVal.sol_keys[6];
+
+        let lastestTemp = marsDataVal[sol].AT.av;
+
+        msg.reply("Latest temperature from Mars: " + lastestTemp);
+    }
+    
+    
 
     if(msg.content === '!launches') 
     {
