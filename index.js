@@ -16,7 +16,14 @@ client.on('message', async msg => {
         msg.reply('Pong!');
     }
 
-    else if (msg.content === 'apod') {
+    if(msg.content === '!help')
+    {
+        msg.reply('Type !apod for Astronomy Picture Of The Day');
+    }
+
+
+    if (msg.content === '!apod') 
+    {
         let getApod = async () => {
 
             let result = await fetch
@@ -25,10 +32,28 @@ client.on('message', async msg => {
             let json = await result.json()
             return json
         }
-
         let apodValue = await getApod();
-        msg.reply("The Link is : " + apodValue.hdurl)
+        msg.reply("Today's date is: " + apodValue.date  + 
+        "\n\nTitle: " +apodValue.title + 
+        "\n\nWhat is it?: " + apodValue.explanation + 
+        "\n\nCopyright: " + apodValue.copyright + "\n\n" +
+        apodValue.hdurl);
     }
+
+    if(msg.content === '!launches') 
+    {
+        let getLaunches = async () => {
+
+            let result = await fetch
+            ('https://launchlibrary.net/1.3/launch/next/5')
+
+            let json = await result.json()
+            return json
+    }
+    let launchesValue = await getLaunches();
+    msg.reply(launchesValue.title);
+    }
+
 });
 
 
