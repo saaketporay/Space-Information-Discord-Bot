@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js'); 
 const config = require('./config.json');
 const fetch = require('node-fetch');
 
@@ -6,22 +6,32 @@ const fetch = require('node-fetch');
 const client = new Discord.Client();
 
 
+//checking about the initialization of the bot
 
 client.once('ready', () => {
-    console.log('Space Information Bot is online!');
-});
+    console.log('Space Information Bot is online!'); 
+    });
+
+
+//All the commands for the bot 
 
 client.on('message', async msg => {
     if (msg.content === 'ping') {
         msg.reply('Pong!');
     }
+    
+    
+    //Help command of the bot
 
     if(msg.content === '!help')
     {
         msg.reply('Type !apod for Astronomy Picture Of The Day\nType !wmars for the weather on Mars\nType !launches for the next 5 launches');
     }
+    
+    
 
-
+     //Command for NASA's api APOD(Astronomical Picture of the Day)   
+    
     if (msg.content === '!apod') 
     {
         let getApod = async () => {
@@ -66,7 +76,6 @@ client.on('message', async msg => {
     }
     
     
-
     if(msg.content === '!launches') 
     {
         let getLaunches = async () => {
@@ -83,5 +92,7 @@ client.on('message', async msg => {
 
 });
 
+
+//token for space information bot
 
 client.login(config.token);
