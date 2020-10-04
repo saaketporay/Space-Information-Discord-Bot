@@ -18,7 +18,7 @@ client.on('message', async msg => {
 
     if(msg.content === '!help')
     {
-        msg.reply('Type !apod for Astronomy Picture Of The Day');
+        msg.reply('Type !apod for Astronomy Picture Of The Day\nType !wmars for the weather on Mars\nType !launches for the next 5 launches');
     }
 
 
@@ -62,7 +62,7 @@ client.on('message', async msg => {
 
         let lastestTemp = marsDataVal[sol].AT.av;
 
-        msg.reply("Latest temperature from Mars: " + lastestTemp);
+        msg.reply("Latest temperature from NASA's InSight Mars Lander at Elysium Planitia: " + lastestTemp + '°C');
     }
     
     
