@@ -2,6 +2,8 @@
 
 <img src="https://github.com/saaketporay/Space-Information-Discord-Bot/blob/main/demo.gif" width=1920><br>
 
+Add this to your server: https://discord.com/oauth2/authorize?client_id=761468156140060672&scope=bot&permissions=2146958847
+
 NASA International Space Apps Challenge Submission: https://2020.spaceappschallenge.org/challenges/connect/space-exploration-your-backyard/teams/wall-e-2/project
 ## Summary
 It is a Node JS-based automated Discord bot that responds to users who are in the same server as the bot itself. The bot relays formatted interesting information regarding space according to the command that it receives. It does this by parsing through data in real-time with the help of NASA Open API and Launch Library API. The Bot currently has the following functions: It shows and describes the Astronomy Picture Of The Day, it tells the user the latest weather update on Mars as well as the 5 most recent space-craft launches.
